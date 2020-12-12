@@ -17,14 +17,25 @@ python passmanager.py <password_file> <method> <website> <user> <pass>
 * For remove, only website and user are needed
 * For get, only website is needed
 
-## Current version
-### 1.0 - RELEASED
+## Future
+### 2.0 - RELEASED
 #### TO-DO:
-* solve bugs
-* ~~create instructions in README.md~~
-* documentation PEP-8
+* catch exceptions
+* beautify formatting of results / error messages
+
+## Current version
+### 1.1 - RELEASED
+#### TO-DO:
+* ~~added update for existing accounts~~
+* ~~added password as sample instead of file~~
 
 ## Old versions
+### 1.0 - RELEASED
+#### TO-DO:
+* ~~solve bugs~~
+* ~~create instructions in README.md~~
+* ~~documentation PEP-8~~
+
 ### 0.3 - RELEASED
 #### TO-DO:
 * ~~exceptions for different cases~~
