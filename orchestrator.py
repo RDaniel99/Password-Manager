@@ -31,6 +31,11 @@ def execute_add_method(master_password, args):
     return database.insert_user(args[0], args[1], args[2])
 
 
+def execute_edit_method(master_password, args):
+    args[3] = crypter.encrypt(args[3], master_password)
+    return database.update_user(args[0], args[1], args[2], args[3])
+
+
 def execute_remove_method(args):
     return database.remove_user(args[0], args[1])
 
@@ -44,6 +49,9 @@ def execute(master_password, method, args):
 
     if method == '-add':
         execute_add_method(master_password, args)
+
+    if method == '-edit':
+        execute_edit_method(master_password, args)
 
     if method == '-remove':
         execute_remove_method(args)

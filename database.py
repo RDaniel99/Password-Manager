@@ -11,6 +11,8 @@ sql_select_given_website = """ SELECT user, password from passwords p where webs
 sql_insert_passwords_table = """ INSERT INTO passwords(website, user, password) 
                                     VALUES(\"{}\", \"{}\", \"{}\"); """
 sql_remove_passwords_table = """ DELETE FROM passwords where website = \"{}\" AND user = \"{}\"; """
+sql_update_passwords_table = """ UPDATE passwords SET user=\"{}\", password=\"{}\" 
+                                 WHERE website = \"{}\" AND user=\"{}\" ; """
 
 
 def select_all():
@@ -23,6 +25,10 @@ def select_given_website(website):
 
 def insert_user(website, user, password):
     execute(sql_insert_passwords_table.format(website, user, password))
+
+
+def update_user(website, old_user, user, password):
+    execute(sql_update_passwords_table.format(user, password, website, old_user))
 
 
 def remove_user(website, user):

@@ -1,6 +1,10 @@
+import base64
 import sys
 import orchestrator
 import setup
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.backends import default_backend
+
 
 could_create = setup.create_password_table()
 
@@ -16,8 +20,11 @@ if len(sys.argv) < 3:
 sys.argv.pop(0)
 
 # get master password
-master_password_file = sys.argv[0]
-master_password = open(master_password_file, "r").read()
+# master_password_file = sys.argv[0]
+# master_password = open(master_password_file, "r").read()
+digest = hashes.Hash(hashes.SHA256(), backend=default_backend())
+digest.update(sys.argv[0].encode())
+master_password = base64.urlsafe_b64encode(digest.finalize())
 sys.argv.pop(0)
 
 # get method from args
