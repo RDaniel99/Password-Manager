@@ -18,12 +18,6 @@ python passmanager.py <password_file> <method> <website> <user> <pass>
 * For get, only website is needed
 * For edit, we need website, oldUser, newUser and newPassword
 
-## Future
-### 2.0 - RELEASED
-#### TO-DO:
-* catch exceptions
-* beautify formatting of results / error messages
-
 ## Current version
 ### 1.1 - RELEASED
 #### TO-DO:
