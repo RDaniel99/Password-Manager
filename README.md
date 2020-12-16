@@ -11,18 +11,19 @@ pip3 install sqlite3
 python passmanager.py <password_file> <method> <website> <user> <pass>
 ```
 * password_file = file with the password (base64 safe)
-* method = { -list / -add / -remove / -get }
+* method = { -list / -add / -remove / -get / -edit }
 * For list, no args are needed
 * For add, all args are needed
 * For remove, only website and user are needed
 * For get, only website is needed
+* For edit, we need website, oldUser, newUser and newPassword
 
 ## Current version
 ### 1.0 - RELEASED
 #### TO-DO:
-* solve bugs
+* ~~solve bugs~~
 * ~~create instructions in README.md~~
-* documentation PEP-8
+* ~~documentation PEP-8~~
 
 ## Old versions
 ### 0.3 - RELEASED

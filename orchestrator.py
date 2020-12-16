@@ -36,8 +36,13 @@ def execute_edit_method(master_password, args):
     return database.update_user(args[0], args[1], args[2], args[3])
 
 
-def execute_remove_method(args):
-    return database.remove_user(args[0], args[1])
+def execute_remove_method(master_password, args):
+    accounts_for_website = database.select_given_website(args[0])
+
+    for account in accounts_for_website:
+        if account[0] == args[1]:
+            _ = crypter.decrypt(account[1], master_password)
+            return database.remove_user(args[0], args[1])
 
 
 def execute(master_password, method, args):
@@ -54,4 +59,4 @@ def execute(master_password, method, args):
         execute_edit_method(master_password, args)
 
     if method == '-remove':
-        execute_remove_method(args)
+        execute_remove_method(master_password, args)
